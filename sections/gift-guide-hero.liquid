@@ -38,71 +38,82 @@
     </div>
   {% endif %}
 
-  <div class="gift-guide__hero">
-    <div class="page-width">
+    <div class="gift-guide__hero">
 
-      <div class="gift-guide__hero-inner">
+        {% if section.settings.background_image != blank %}
+            <div class="gift-guide__hero-background">
 
-        <div class="gift-guide__content">
-
-          <div class="gift-guide__content-inner">
-
-            {% if section.settings.heading != blank %}
-              <h1 class="gift-guide__heading">
-                {{ section.settings.heading }}
-              </h1>
-            {% endif %}
-
-            {% if section.settings.description != blank %}
-              <div class="gift-guide__description">
-                {{ section.settings.description }}
-              </div>
-            {% endif %}
-
-            {% if section.settings.button_text != blank %}
-              <a
-                href="{{ section.settings.button_link }}"
-                class="gift-guide__button"
-                data-action="gift-guide-cta"
-              >
-                {{ section.settings.button_text }}
-              </a>
-            {% endif %}
-
-          </div>
-
-        </div>
-
-        <div class="gift-guide__media">
-
-          {% if section.settings.background_image != blank %}
             {{
-              section.settings.background_image
-              | image_url: width: 1800
-              | image_tag:
-                class: 'gift-guide__image gift-guide__image--primary',
-                loading: 'lazy',
+                section.settings.background_image
+                | image_url: width: 2200
+                | image_tag:
+                class: 'gift-guide__background-image',
+                loading: 'eager',
+                fetchpriority: 'high',
                 alt: section.settings.background_image.alt
             }}
-          {% endif %}
 
-          {% if section.settings.foreground_image != blank %}
-            {{
-              section.settings.foreground_image
-              | image_url: width: 1200
-              | image_tag:
-                class: 'gift-guide__image gift-guide__image--secondary',
-                loading: 'lazy',
-                alt: section.settings.foreground_image.alt
-            }}
-          {% endif %}
+            </div>
+        {% endif %}
+        <div class="gift-guide__hero-container>
+            <div class="page-width">
+
+            <div class="gift-guide__hero-inner">
+
+            <div class="gift-guide__content">
+
+                <div class="gift-guide__content-inner">
+
+                {% if section.settings.heading != blank %}
+                    <h1 class="gift-guide__heading">
+                    {{ section.settings.heading }}
+                    </h1>
+                {% endif %}
+
+                {% if section.settings.description != blank %}
+                    <div class="gift-guide__description">
+                    {{ section.settings.description }}
+                    </div>
+                {% endif %}
+
+                {% if section.settings.button_text != blank %}
+                    <a
+                    href="{{ section.settings.button_link }}"
+                    class="gift-guide__button"
+                    data-action="gift-guide-cta"
+                    >
+                    {{ section.settings.button_text }}
+                    </a>
+                {% endif %}
+
+                </div>
+
+            </div>
+
+            <div class="gift-guide__foreground">
+
+                {% if section.settings.foreground_image != blank %}
+
+                {{
+                    section.settings.foreground_image
+                    | image_url: width: 1200
+                    | image_tag:
+                    class: 'gift-guide__foreground-image',
+                    loading: 'eager',
+                    fetchpriority: 'high',
+                    alt: section.settings.foreground_image.alt
+                }}
+
+                {% endif %}
+
+            </div>
+
+            </div>
 
         </div>
-
-      </div>
-
+        </div>
     </div>
-  </div>
+
 
   {% if section.settings.bottom_strip_text != blank %}
     <div class="gift-guide__bottom-strip">
