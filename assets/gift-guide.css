@@ -1,0 +1,176 @@
+/* ==========================================================================
+   Gift Guide Hero
+   ========================================================================== */
+
+.gift-guide {
+  background: var(--gift-guide-bg);
+  overflow: hidden;
+}
+
+.gift-guide *,
+.gift-guide *::before,
+.gift-guide *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Announcement Bar
+   ========================================================================== */
+
+.gift-guide__announcement {
+  background: var(--announcement-bg);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.gift-guide__announcement-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  min-height: 56px;
+  padding: 0.75rem 0;
+}
+
+.gift-guide__announcement-text {
+  margin: 0;
+
+  color: var(--announcement-text);
+
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.gift-guide__announcement-button {
+  color: var(--announcement-text);
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: opacity .25s ease;
+}
+
+.gift-guide__announcement-button:hover {
+  opacity: .75;
+}
+
+/* ==========================================================================
+   Hero Layout
+   ========================================================================== */
+
+.gift-guide__hero {
+  position: relative;
+  padding: 90px 0;
+}
+
+.gift-guide__hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+.gift-guide__content {
+  flex: 0 0 42%;
+}
+
+.gift-guide__content-inner {
+  max-width: 470px;
+}
+
+.gift-guide__media {
+  position: relative;
+
+  flex: 0 0 58%;
+
+  min-height: 620px;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+.gift-guide__heading {
+  margin: 0 0 24px;
+
+  color: var(--gift-guide-heading);
+
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: .95;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.gift-guide__description {
+  margin-bottom: 36px;
+
+  color: var(--gift-guide-description);
+
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.gift-guide__description p {
+  margin: 0;
+}
+
+.gift-guide__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 185px;
+  min-height: 54px;
+
+  padding: 0 32px;
+
+  background: #111;
+  color: #fff;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .08em;
+
+  transition:
+    background .3s ease,
+    color .3s ease,
+    transform .25s ease;
+}
+
+.gift-guide__button:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Bottom Strip
+   ========================================================================== */
+
+.gift-guide__bottom-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 72px;
+
+  background: var(--bottom-strip-bg);
+  color: var(--bottom-strip-text);
+
+  text-align: center;
+
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+
+  padding: 0 20px;
+}
