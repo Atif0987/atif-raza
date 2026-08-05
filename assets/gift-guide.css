@@ -67,7 +67,7 @@
 .gift-guide__hero {
     position: relative;
     overflow: hidden;
-    padding: 100px 0;
+    /* padding: 100px 0; */
     background: var(--gift-guide-bg);
 }
 
@@ -99,28 +99,27 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-
-    gap: 60px;
-
+    /* gap: 60px; */
     min-height: 640px;
 }
 
 /* Left Side */
 
 .gift-guide__content {
-    width: 42%;
+    width: 50%;
     display: flex;
     align-items: center;
+    padding: 40px 0 30px 100px;
 }
 
 .gift-guide__content-inner {
-    max-width: 470px;
+    width: 100%;
 }
 
 /* Right Side */
 
 .gift-guide__foreground {
-    width: 58%;
+    width: 50%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -128,7 +127,6 @@
 
 .gift-guide__foreground-image {
     display: block;
-
     width: 100%;
     max-width: 560px;
     height: auto;
