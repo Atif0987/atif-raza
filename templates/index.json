@@ -17,17 +17,19 @@
         "announcement_text": "Find the ideal gift for your loved ones.",
         "announcement_button_text": "CHOOSE GIFT",
         "announcement_button_link": "",
-        "announcement_background": "#EEEADD",
+        "announcement_background": "#eeeadd",
         "announcement_text_color": "#111111",
         "heading": "The Gift Guide",
         "description": "<p>Discover Joy: Your Ultimate Holiday Gift Destination.</p>",
         "button_text": "SHOP NOW",
         "button_link": "",
+        "background_image": "shopify://shop_images/Frame.png",
+        "foreground_image": "shopify://shop_images/Frame_1.png",
         "bottom_strip_text": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR",
-        "section_background": "#FFFFFF",
+        "section_background": "#ffffff",
         "heading_color": "#111111",
         "description_color": "#555555",
-        "bottom_strip_background": "#EEEADD",
+        "bottom_strip_background": "#eeeadd",
         "bottom_strip_text_color": "#111111"
       }
     }
