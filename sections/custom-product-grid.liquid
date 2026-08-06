@@ -128,12 +128,16 @@
                             {% for value in option.values %}
 
                                 <button
-                                type="button"
-                                class="custom-product-popup__value"
-                                data-option-index="{{ option_index }}"
-                                data-value="{{ value }}"
-                                >
-                                {{ value }}
+                                  type="button"
+                                  class="custom-product-popup__value"
+                                  data-option-index="{{ option_index }}"
+                                  data-value="{{ value }}"
+                                  style="--swatch-color: {{ value | downcase }};"
+                                  >
+                                  <span class="custom-product-popup__swatch"></span>
+                                  <span class="custom-product-popup__value-text">
+                                    {{ value }}
+                                  </span>
                                 </button>
 
                             {% endfor %}
