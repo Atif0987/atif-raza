@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.querySelector(".custom-product-popup-overlay");
 
+  // Initialize popup interactions for each product card.
   document.querySelectorAll(".custom-product-grid__item").forEach((item) => {
 
     const hotspot = item.querySelector(".custom-product-grid__hotspot");
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       select.addEventListener("change", updateVariant);
     });
 
+    // Resolve the selected variant from the current option state.
     function updateVariant() {
 
       const variants = JSON.parse(
@@ -95,10 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       statusMessage.classList.toggle("is-error", isError);
     }
 
-    /* ==========================
-       AJAX Add To Cart
-    ========================== */
-
+    // Submit the add-to-cart request and show a polished success or error message.
     const WINTER_JACKET_VARIANT_ID = 42828416221269;
     addButton.addEventListener("click", async () => {
 

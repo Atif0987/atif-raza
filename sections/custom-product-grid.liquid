@@ -55,8 +55,6 @@
                 <span></span>
             </button>
 
-            <!-- Popup -->
-
             <div class="custom-product-popup">
 
                 <button
@@ -108,10 +106,7 @@
 
                     {% unless product.has_only_default_variant %}
 
-                    {% comment %}
-                        Render non-size options (e.g. Color) first, then Size last,
-                        regardless of the order Shopify stores them in.
-                    {% endcomment %}
+                    {%- comment -%}Render non-size options first and size last so the selector order stays consistent.{%- endcomment -%}
 
                     {% for option in product.options_with_values %}
                         {% assign option_index = forloop.index0 %}
