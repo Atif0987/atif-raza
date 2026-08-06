@@ -70,8 +70,8 @@
           "settings": {
             "product": "classic-leather-jacket",
             "custom_image": "shopify://shop_images/Classic_Leather_Jacket.png",
-            "hotspot_x": 50,
-            "hotspot_y": 50
+            "hotspot_x": 70,
+            "hotspot_y": 20
           }
         },
         "product_card_JPbd4a": {
