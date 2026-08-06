@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 34px;
+    min-height: 40px;
     color: var(--custom-bar-text);
     text-transform: uppercase;
     font-weight: 400;
