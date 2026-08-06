@@ -18,6 +18,7 @@
         "button_text": "SHOP NOW",
         "button_link": "",
         "hero_image": "shopify://shop_images/Main_Image_2.png",
+        "mobile_hero_image": "shopify://shop_images/Hero_Mobile.png",
         "section_background": "#ffffff",
         "heading_color": "{{ settings.color_palette.foreground }}",
         "description_color": "{{ settings.color_palette.foreground }}"
