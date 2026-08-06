@@ -190,12 +190,9 @@
 
     .gift-guide__button--mobile{
         position:absolute;
-
         left:50%;
-        bottom:32px;
-
+        bottom:43px;
         transform:translateX(-50%);
-
         min-width:220px;
         min-height:52px;
     }
