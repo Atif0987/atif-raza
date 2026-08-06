@@ -41,9 +41,7 @@
 
 .gift-guide__heading {
   margin: 0 0 24px;
-
   color: var(--gift-guide-heading);
-
   font-size: clamp(48px, 5vw, 72px);
   line-height: 0.95;
   font-weight: 400;
@@ -52,15 +50,16 @@
 
 .gift-guide__description {
   margin-bottom: 36px;
-
   color: var(--gift-guide-description);
-
-  font-size: 18px;
-  line-height: 1.7;
 }
 
 .gift-guide__description p {
-  margin: 0;
+      margin: 0;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 140%;
+    letter-spacing: 0px;
+    vertical-align: middle;
 }
 
 .gift-guide__button {
