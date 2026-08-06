@@ -122,7 +122,9 @@
    ========================================================================== */
 
 @media screen and (max-width: 767px) {
-
+  .section-custom-product-grid .page-width {
+    padding: 0 20px;
+  }
   .custom-product-grid {
     padding: 40px 0;
   }
