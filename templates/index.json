@@ -99,7 +99,7 @@
       "settings": {
         "heading": "Tisso vision in the wild",
         "background_color": "#ffffff",
-        "heading_color": "#111111"
+        "heading_color": "{{ settings.color_palette.foreground }}"
       }
     }
   },
