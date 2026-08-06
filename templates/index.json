@@ -61,8 +61,8 @@
           "settings": {
             "product": "chequered-red-shirt",
             "custom_image": "shopify://shop_images/Chequered_Red_Shirt.png",
-            "hotspot_x": 50,
-            "hotspot_y": 50
+            "hotspot_x": 65,
+            "hotspot_y": 25
           }
         },
         "product_card_TpBRPU": {
