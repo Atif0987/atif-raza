@@ -98,6 +98,7 @@
   transform: translate(-50%, -50%) scale(1.1);
 }
 
+
 /* ==========================================================================
    Tablet
    ========================================================================== */
@@ -142,4 +143,282 @@
     font-size: 20px;
   }
 
+}
+
+/* ==========================================================================
+   Product Popup Overlay
+   ========================================================================== */
+
+.custom-product-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+
+  width: 100%;
+  max-width: 620px;
+
+  background: #fff;
+  border-radius: 16px;
+
+  display: flex;
+  align-items: stretch;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.25s ease;
+
+  z-index: 9999;
+
+  overflow: hidden;
+}
+
+.custom-product-popup.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ==========================================================================
+   Overlay
+   ========================================================================== */
+
+.custom-product-popup-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: 0.25s ease;
+
+  z-index: 9998;
+}
+
+.custom-product-popup-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================================================
+   Close
+   ========================================================================== */
+
+.custom-product-popup__close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+
+  width: 32px;
+  height: 32px;
+
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+
+  font-size: 28px;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Image
+   ========================================================================== */
+
+.custom-product-popup__image-wrapper {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.custom-product-popup__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+.custom-product-popup__content {
+  flex: 1;
+  padding: 26px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-product-popup__title {
+  margin: 0;
+
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.custom-product-popup__price {
+  margin-top: 10px;
+  margin-bottom: 24px;
+
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+
+.custom-product-popup__option:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.custom-product-popup__label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Variant Buttons
+   ========================================================================== */
+
+.custom-product-popup__values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.custom-product-popup__value {
+  padding: 10px 18px;
+
+  background: #fff;
+
+  border: 1px solid #ddd;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.custom-product-popup__value:hover,
+.custom-product-popup__value.is-active {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* ==========================================================================
+   Select
+   ========================================================================== */
+
+.custom-product-popup__select {
+  width: 100%;
+  height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid #ddd;
+
+  font-size: 15px;
+
+  background: #fff;
+
+  outline: none;
+}
+
+/* ==========================================================================
+   Add Button
+   ========================================================================== */
+
+.custom-product-popup__add {
+  margin-top: 28px;
+
+  width: 100%;
+  height: 52px;
+
+  border: 0;
+
+  background: #000;
+
+  color: #fff;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  text-transform: uppercase;
+}
+
+.custom-product-popup__add svg {
+  width: 20px;
+  color: #fff;
+}
+
+/* ==========================================================================
+   Tablet
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .custom-product-popup {
+    max-width: 560px;
+  }
+
+  .custom-product-popup__image-wrapper {
+    width: 220px;
+  }
+}
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .custom-product-popup {
+    flex-direction: column;
+
+    width: calc(100% - 32px);
+
+    max-width: none;
+  }
+
+  .custom-product-popup__image-wrapper {
+    width: 100%;
+  }
+
+  .custom-product-popup__image {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  .custom-product-popup__content {
+    padding: 20px;
+  }
+
+  .custom-product-popup__title {
+    font-size: 20px;
+  }
+
+  .custom-product-popup__price {
+    font-size: 17px;
+
+    margin-bottom: 20px;
+  }
+
+  .custom-product-popup__close {
+    top: 12px;
+    right: 12px;
+  }
 }
