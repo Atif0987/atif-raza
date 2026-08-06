@@ -13,11 +13,11 @@
   box-sizing: border-box;
 }
 
-.page-width {
+.section-gift-guide-hero .page-width {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    /* padding: 0 40px; */
+    padding: 0 40px;
 }
 
 /* ==========================================================================
