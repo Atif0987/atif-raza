@@ -184,7 +184,7 @@
    Responsive
    ========================================================================== */
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 769px) {
 
   .custom-header__desktop {
     display: none;
@@ -199,7 +199,7 @@
 
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
 
   .custom-header__desktop {
     display: block;
