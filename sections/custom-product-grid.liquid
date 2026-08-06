@@ -19,54 +19,173 @@
     <div class="custom-product-grid__grid">
 
       {% for block in section.blocks %}
-
         {% assign product = block.settings.product %}
-
         <div
-          class="custom-product-grid__item"
-          {{ block.shopify_attributes }}
+  class="custom-product-grid__item"
+  {{ block.shopify_attributes }}
+>
+
+  {% if block.settings.custom_image != blank %}
+    {% assign popup_image = block.settings.custom_image %}
+  {% else %}
+    {% assign popup_image = product.featured_image %}
+  {% endif %}
+
+  {% if popup_image %}
+    {{
+      popup_image
+      | image_url: width: 900
+      | image_tag:
+        class: 'custom-product-grid__image',
+        loading: 'lazy',
+        alt: product.title
+    }}
+  {% endif %}
+
+  <button
+    type="button"
+    class="custom-product-grid__hotspot"
+    style="
+      left: {{ block.settings.hotspot_x }}%;
+      top: {{ block.settings.hotspot_y }}%;
+    "
+  >
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Popup -->
+
+  <div class="custom-product-popup">
+
+    <button
+      type="button"
+      class="custom-product-popup__close"
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+    <div class="custom-product-popup__image-wrapper">
+
+      {% if popup_image %}
+        {{
+          popup_image
+          | image_url: width: 600
+          | image_tag:
+            class: 'custom-product-popup__image',
+            loading: 'lazy',
+            alt: product.title
+        }}
+      {% endif %}
+
+    </div>
+
+    <div class="custom-product-popup__content">
+
+      <h3 class="custom-product-popup__title">
+        {{ product.title }}
+      </h3>
+
+      <div class="custom-product-popup__price">
+        {{ product.price | money }}
+      </div>
+
+      <form class="custom-product-popup__form">
+
+        {% unless product.has_only_default_variant %}
+
+          {% for option in product.options_with_values %}
+
+            <div class="custom-product-popup__option">
+
+              <label class="custom-product-popup__label">
+                {{ option.name }}
+              </label>
+
+              {% if option.name == 'Size' %}
+
+                <select
+                  class="custom-product-popup__select"
+                  data-option-index="{{ forloop.index0 }}"
+                >
+
+                  <option value="">
+                    Choose your {{ option.name | downcase }}
+                  </option>
+
+                  {% for value in option.values %}
+                    <option value="{{ value }}">
+                      {{ value }}
+                    </option>
+                  {% endfor %}
+
+                </select>
+
+              {% else %}
+
+                <div class="custom-product-popup__values">
+
+                  {% for value in option.values %}
+
+                    <button
+                      type="button"
+                      class="custom-product-popup__value"
+                      data-option-index="{{ forloop.parentloop.index0 }}"
+                      data-value="{{ value }}"
+                    >
+                      {{ value }}
+                    </button>
+
+                  {% endfor %}
+
+                </div>
+
+              {% endif %}
+
+            </div>
+
+          {% endfor %}
+
+        {% endunless  %}
+
+        <input
+          type="hidden"
+          class="custom-product-popup__variant-id"
+          value="{{ product.selected_or_first_available_variant.id }}"
         >
 
-          {% if block.settings.custom_image != blank %}
+        <button
+          type="button"
+          class="custom-product-popup__add"
+        >
+          <span>ADD TO CART</span>
 
-            {{
-              block.settings.custom_image
-              | image_url: width: 900
-              | image_tag:
-                class: 'custom-product-grid__image',
-                loading: 'lazy',
-                alt: product.title
-            }}
-
-          {% elsif product.featured_image %}
-
-            {{
-              product.featured_image
-              | image_url: width: 900
-              | image_tag:
-                class: 'custom-product-grid__image',
-                loading: 'lazy',
-                alt: product.title
-            }}
-
-          {% endif %}
-
-          <button
-            type="button"
-            class="custom-product-grid__hotspot"
-            style="
-              left: {{ block.settings.hotspot_x }}%;
-              top: {{ block.settings.hotspot_y }}%;
-            "
-            data-product-id="{{ product.id }}"
-            data-product-handle="{{ product.handle }}"
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 68 30"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <span></span>
-            <span></span>
-          </button>
+            <path
+              d="M2 12.7279L1.96701e-07 12.7279L-1.96701e-07 16.7279L2 16.7279L2 12.7279ZM67.4142 16.1421C68.1953 15.3611 68.1953 14.0947 67.4142 13.3137L54.6863 0.585774C53.9052 -0.195275 52.6389 -0.195275 51.8579 0.585774C51.0768 1.36682 51.0768 2.63315 51.8579 3.4142L63.1716 14.7279L51.8579 26.0416C51.0768 26.8227 51.0768 28.089 51.8579 28.87C52.6389 29.6511 53.9052 29.6511 54.6863 28.87L67.4142 16.1421ZM2 16.7279L66 16.7279L66 12.7279L2 12.7279L2 16.7279Z"
+              fill="currentColor"
+            />
+          </svg>
 
-        </div>
+        </button>
 
+      </form>
+
+    </div>
+
+    <script type="application/json" class="custom-product-popup__variants">
+      {{ product.variants | json }}
+    </script>
+
+  </div>
+
+</div>
       {% endfor %}
 
     </div>
