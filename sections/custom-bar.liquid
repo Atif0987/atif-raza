@@ -10,9 +10,15 @@
   <div class="page-width">
 
     {% if section.settings.text != blank %}
-      <div class="custom-bar__text">
+      <div class="custom-desktop-bar__text">
         {{ section.settings.text }}
       </div>
+    {% endif %}
+
+    {% if section.settings.mobile_text != blank %}
+        <div class="custom-mobile-bar__text">
+            {{ section.settings.mobile_text }}
+        </div>
     {% endif %}
 
   </div>
@@ -27,8 +33,14 @@
     {
       "type": "text",
       "id": "text",
-      "label": "Text",
+      "label": "Desktop Text",
       "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+    },
+    {
+        "type": "text",
+        "id": "mobile_text",
+        "label": "Mobile Text",
+        "default":"SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
     },
     {
       "type": "color",
@@ -41,7 +53,7 @@
       "id": "text_color",
       "label": "Text Color",
       "default": "#000000"
-    }
+    },
   ],
   "presets": [
     {
