@@ -103,16 +103,13 @@
    ========================================================================== */
 
 @media screen and (max-width: 1024px) {
-
   .custom-product-grid {
     padding: 60px 0;
   }
-
   .custom-product-grid__heading {
     font-size: 38px;
     margin-bottom: 24px;
   }
-
   .custom-product-grid__grid {
     gap: 10px;
   }
@@ -131,12 +128,9 @@
 
   .custom-product-grid__heading {
     margin-bottom: 24px;
-
     text-align: center;
-
     font-size: 32px;
   }
-
   .custom-product-grid__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -145,7 +139,6 @@
   .custom-product-grid__hotspot {
     width: 32px;
     height: 32px;
-
     font-size: 20px;
   }
 
