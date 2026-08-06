@@ -19,8 +19,8 @@
         "button_link": "",
         "hero_image": "shopify://shop_images/Main_Image_2.png",
         "section_background": "#ffffff",
-        "heading_color": "#111111",
-        "description_color": "#555555"
+        "heading_color": "{{ settings.color_palette.foreground }}",
+        "description_color": "{{ settings.color_palette.foreground }}"
       }
     }
   },
