@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hotspot = item.querySelector(".custom-product-grid__hotspot");
     const popup = item.querySelector(".custom-product-popup");
     const close = popup.querySelector(".custom-product-popup__close");
+    const addButton = popup.querySelector(".custom-product-popup__add");
 
     hotspot.addEventListener("click", () => {
       popup.classList.add("is-active");
@@ -74,18 +75,69 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      const matchedVariant = variants.find((variant) => {
-
-        return variant.options.every((option, index) => {
-          return option === selectedOptions[index];
-        });
-
-      });
+      const matchedVariant = variants.find((variant) =>
+        variant.options.every((option, index) => option === selectedOptions[index])
+      );
 
       if (matchedVariant) {
         popup.querySelector(".custom-product-popup__variant-id").value =
           matchedVariant.id;
       }
     }
+
+    /* ==========================
+       AJAX Add To Cart
+    ========================== */
+
+    addButton.addEventListener("click", async () => {
+
+      const variantId = popup.querySelector(".custom-product-popup__variant-id").value;
+
+      if (!variantId) {
+        alert("Please select all options.");
+        return;
+      }
+
+      addButton.disabled = true;
+      addButton.querySelector("span").textContent = "ADDING...";
+
+      try {
+
+        const response = await fetch("/cart/add.js", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            id: Number(variantId),
+            quantity: 1
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error("Unable to add product.");
+        }
+
+        addButton.querySelector("span").textContent = "ADDED ✓";
+
+        setTimeout(() => {
+          closePopup();
+
+          addButton.disabled = false;
+          addButton.querySelector("span").textContent = "ADD TO CART";
+        }, 800);
+
+      } catch (error) {
+        console.error(error);
+
+        addButton.disabled = false;
+        addButton.querySelector("span").textContent = "ADD TO CART";
+
+        alert("Something went wrong.");
+      }
+
+    });
+
   });
+
 });
