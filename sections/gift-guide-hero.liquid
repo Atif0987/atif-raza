@@ -82,9 +82,9 @@
         </h1>
       {% endif %}
 
-      {% if section.settings.description != blank %}
+      {% if section.settings.mobile_description != blank %}
         <div class="gift-guide__description">
-          {{ section.settings.description }}
+          {{ section.settings.mobile_description }}
         </div>
       {% endif %}
 
@@ -157,6 +157,12 @@
       "type": "richtext",
       "id": "description",
       "label": "Description",
+      "default": "<p>Discover Joy: Your Ultimate Holiday Gift Destination.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "mobile_description",
+      "label": "Mobile Description",
       "default": "<p>Discover Joy: Your Ultimate Holiday Gift Destination.</p>"
     },
     {
