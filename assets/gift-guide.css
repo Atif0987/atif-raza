@@ -4,7 +4,6 @@
 
 .gift-guide {
   background: var(--gift-guide-bg);
-  overflow: hidden;
 }
 
 .gift-guide *,
@@ -14,127 +13,32 @@
 }
 
 /* ==========================================================================
-   Announcement Bar
-   ========================================================================== */
-
-.gift-guide__announcement {
-  background: var(--announcement-bg);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
-
-.gift-guide__announcement-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-
-  min-height: 56px;
-  padding: 0.75rem 0;
-}
-
-.gift-guide__announcement-text {
-  margin: 0;
-
-  color: var(--announcement-text);
-
-  font-size: 14px;
-  line-height: 1.5;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-}
-
-.gift-guide__announcement-button {
-  color: var(--announcement-text);
-
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-
-  text-decoration: none;
-  text-transform: uppercase;
-
-  transition: opacity .25s ease;
-}
-
-.gift-guide__announcement-button:hover {
-  opacity: .75;
-}
-
-/* ==========================================================================
-   Hero Layout
+   Hero
    ========================================================================== */
 
 .gift-guide__hero {
-    position: relative;
-    overflow: hidden;
-    /* padding: 100px 0; */
-    background: var(--gift-guide-bg);
+  position: relative;
 }
 
-/* Decorative Background */
-
-.gift-guide__hero-background {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.gift-guide__background-image {
-    width: 100%;
-    /* height: 100%; */
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
-
-/* Content Layer */
-
-.gift-guide__hero .page-width {
-    position: relative;
-    z-index: 2;
-}
-
-.gift-guide__hero-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    /* gap: 60px; */
-    min-height: 640px;
-}
-
-/* Left Side */
-
-.gift-guide__content {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    padding: 40px 0 30px 100px;
-}
-
-.gift-guide__content-inner {
-    width: 100%;
-}
-
-/* Right Side */
-
-.gift-guide__foreground {
-    width: 50%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
-.gift-guide__foreground-image {
-    display: block;
-    width: 100%;
-    max-width: 560px;
-    height: auto;
+.gift-guide__image {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ==========================================================================
-   Typography
+   Hero Content
    ========================================================================== */
+
+.gift-guide__content {
+  position: absolute;
+  top: 50%;
+  left: 90px;
+  transform: translateY(-50%);
+
+  max-width: 430px;
+  width: 100%;
+}
 
 .gift-guide__heading {
   margin: 0 0 24px;
@@ -142,7 +46,7 @@
   color: var(--gift-guide-heading);
 
   font-size: clamp(48px, 5vw, 72px);
-  line-height: .95;
+  line-height: 0.95;
   font-weight: 400;
   letter-spacing: -0.03em;
 }
@@ -165,10 +69,10 @@
   align-items: center;
   justify-content: center;
 
-  min-width: 185px;
-  min-height: 54px;
+  min-width: 180px;
+  min-height: 52px;
 
-  padding: 0 32px;
+  padding: 0 30px;
 
   background: #111;
   color: #fff;
@@ -178,39 +82,14 @@
 
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
 
   transition:
-    background .3s ease,
-    color .3s ease,
-    transform .25s ease;
+    background 0.3s ease,
+    transform 0.3s ease;
 }
 
 .gift-guide__button:hover {
   background: #333;
   transform: translateY(-2px);
-}
-
-/* ==========================================================================
-   Bottom Strip
-   ========================================================================== */
-
-.gift-guide__bottom-strip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 40px;
-
-  background: var(--bottom-strip-bg);
-  color: var(--bottom-strip-text);
-
-  text-align: center;
-
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-
-  padding: 0 20px;
 }
