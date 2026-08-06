@@ -89,52 +89,91 @@ document.addEventListener("DOMContentLoaded", () => {
        AJAX Add To Cart
     ========================== */
 
+    const WINTER_JACKET_VARIANT_ID = 42828416221269;
     addButton.addEventListener("click", async () => {
 
-      const variantId = popup.querySelector(".custom-product-popup__variant-id").value;
+    const variantId = Number(
+        popup.querySelector(".custom-product-popup__variant-id").value
+    );
 
-      if (!variantId) {
+    if (!variantId) {
         alert("Please select all options.");
         return;
-      }
+    }
 
-      addButton.disabled = true;
-      addButton.querySelector("span").textContent = "ADDING...";
+    const variants = JSON.parse(
+        popup.querySelector(".custom-product-popup__variants").textContent
+    );
 
-      try {
+    const selectedVariant = variants.find(
+        (variant) => variant.id === variantId
+    );
 
-        const response = await fetch("/cart/add.js", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            id: Number(variantId),
-            quantity: 1
-          })
-        });
+    let shouldAddJacket = false;
 
-        if (!response.ok) {
-          throw new Error("Unable to add product.");
+    if (selectedVariant) {
+
+        const color = selectedVariant.option1;
+        const size = selectedVariant.option2;
+
+        if (color === "Black" && size === "Medium") {
+        shouldAddJacket = true;
         }
+    }
+
+    const items = [
+        {
+        id: variantId,
+        quantity: 1
+        }
+    ];
+
+    if (shouldAddJacket) {
+        items.push({
+        id: WINTER_JACKET_VARIANT_ID,
+        quantity: 1
+        });
+    }
+
+    addButton.disabled = true;
+    addButton.querySelector("span").textContent = "ADDING...";
+
+    try {
+
+        await fetch(window.Shopify.routes.root + "cart/add.js", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            items
+        })
+        });
 
         addButton.querySelector("span").textContent = "ADDED ✓";
 
         setTimeout(() => {
-          closePopup();
 
-          addButton.disabled = false;
-          addButton.querySelector("span").textContent = "ADD TO CART";
-        }, 800);
+        closePopup();
 
-      } catch (error) {
+        addButton.disabled = false;
+        addButton.querySelector("span").textContent = "ADD TO CART";
+
+        // Refresh cart UI if your theme uses one
+        document.dispatchEvent(new CustomEvent("cart:refresh"));
+
+        }, 700);
+
+    } catch (error) {
+
         console.error(error);
 
         addButton.disabled = false;
         addButton.querySelector("span").textContent = "ADD TO CART";
 
-        alert("Something went wrong.");
-      }
+        alert("Unable to add product.");
+
+    }
 
     });
 
