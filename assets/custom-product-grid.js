@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const popup = item.querySelector(".custom-product-popup");
     const close = popup.querySelector(".custom-product-popup__close");
     const addButton = popup.querySelector(".custom-product-popup__add");
+    const addButtonLabel = addButton.querySelector("span");
+    const statusMessage = popup.querySelector(".custom-product-popup__status");
 
     hotspot.addEventListener("click", () => {
       popup.classList.add("is-active");
@@ -85,6 +87,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    function setStatus(message, isError = false) {
+      if (!statusMessage) return;
+
+      statusMessage.textContent = message;
+      statusMessage.classList.toggle("is-visible", Boolean(message));
+      statusMessage.classList.toggle("is-error", isError);
+    }
+
     /* ==========================
        AJAX Add To Cart
     ========================== */
@@ -136,11 +146,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     addButton.disabled = true;
-    addButton.querySelector("span").textContent = "ADDING...";
+    addButtonLabel.textContent = "ADDING...";
+    setStatus("Adding to your cart...");
 
     try {
 
-        await fetch(window.Shopify.routes.root + "cart/add.js", {
+        const response = await fetch(window.Shopify.routes.root + "cart/add.js", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -150,26 +161,31 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         });
 
-        addButton.querySelector("span").textContent = "ADDED ✓";
+        if (!response.ok) {
+        throw new Error("Unable to add product.");
+        }
+
+        addButtonLabel.textContent = "ADDED TO CART";
+        setStatus("Added to your cart.");
 
         setTimeout(() => {
 
         closePopup();
 
         addButton.disabled = false;
-        addButton.querySelector("span").textContent = "ADD TO CART";
+        addButtonLabel.textContent = "ADD TO CART";
+        setStatus("");
         window.location.href = "/cart";
 
-        }, 700);
+        }, 900);
 
     } catch (error) {
 
         console.error(error);
 
         addButton.disabled = false;
-        addButton.querySelector("span").textContent = "ADD TO CART";
-
-        alert("Unable to add product.");
+        addButtonLabel.textContent = "ADD TO CART";
+        setStatus("Unable to add this item. Please try again.", true);
 
     }
 

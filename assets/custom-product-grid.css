@@ -488,6 +488,27 @@
     flex-shrink:0;
 }
 
+.custom-product-popup__status {
+  min-height: 20px;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1f6f3f;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.custom-product-popup__status.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.custom-product-popup__status.is-error {
+  color: #b42318;
+}
+
 /* ==========================================================================
    Tablet
    ========================================================================== */
