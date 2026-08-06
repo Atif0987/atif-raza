@@ -158,9 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         addButton.disabled = false;
         addButton.querySelector("span").textContent = "ADD TO CART";
-
-        // Refresh cart UI if your theme uses one
-        document.dispatchEvent(new CustomEvent("cart:refresh"));
+        window.location.href = "/cart";
 
         }, 700);
 
