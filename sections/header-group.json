@@ -136,9 +136,9 @@
         "announcement": "Find the ideal gift for your loved ones.",
         "button_text": "CHOOSE GIFT",
         "button_link": "",
-        "background": "#F5F3EE",
-        "text_color": "#111111",
-        "button_background": "#F8E81C",
+        "background": "#F5F5F5",
+        "text_color": "#000000",
+        "button_background": "#FFF544",
         "button_text_color": "#111111"
       }
     }
