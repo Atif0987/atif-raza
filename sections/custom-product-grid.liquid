@@ -67,30 +67,38 @@
                 ×
                 </button>
 
-                <div class="custom-product-popup__image-wrapper">
+                <div class="custom-product-popup__top">
 
-                {% if popup_image %}
-                    {{
-                    popup_image
-                    | image_url: width: 480
-                    | image_tag:
-                        class: 'custom-product-popup__image',
-                        loading: 'lazy',
-                        alt: product.title
-                    }}
-                {% endif %}
+                    <div class="custom-product-popup__image-wrapper">
+
+                    {% if popup_image %}
+                        {{
+                        popup_image
+                        | image_url: width: 240
+                        | image_tag:
+                            class: 'custom-product-popup__image',
+                            loading: 'lazy',
+                            alt: product.title
+                        }}
+                    {% endif %}
+
+                    </div>
+
+                    <div class="custom-product-popup__header">
+
+                        <h3 class="custom-product-popup__title">
+                            {{ product.title }}
+                        </h3>
+
+                        <div class="custom-product-popup__price">
+                            {{ product.price | money }}
+                        </div>
+
+                    </div>
 
                 </div>
 
                 <div class="custom-product-popup__content">
-
-                <h3 class="custom-product-popup__title">
-                    {{ product.title }}
-                </h3>
-
-                <div class="custom-product-popup__price">
-                    {{ product.price | money }}
-                </div>
 
                 {% if product.description != blank %}
                     <div class="custom-product-popup__description">
@@ -218,6 +226,7 @@
 
   </div>
 </div>
+
 
 
 {% schema %}
