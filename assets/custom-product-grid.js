@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const color = selectedVariant.option1;
         const size = selectedVariant.option2;
 
-        if (color === "Black" && size === "Medium") {
+        if (color === "Black" && size === "M") {
         shouldAddJacket = true;
         }
     }
