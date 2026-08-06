@@ -74,7 +74,6 @@
     font-weight: 400;
     letter-spacing: .06em;
     transition: background .25s ease;
-    line-height: 20px;
 }
 
 .custom-header__button:hover {
