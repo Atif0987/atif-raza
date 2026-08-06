@@ -14,7 +14,11 @@
     box-sizing: border-box;
 }
 
-.custom-bar__text {
+custom-mobile-bar__text{
+    display:none;
+}
+
+.custom-desktop-bar__text{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +39,11 @@
 
 @media screen and (max-width: 768px) {
 
-    .custom-bar__text {
+    .custom-desktop-bar__text {
+        display:none;
+    }
+    .custom-mobile-bar__text{
+        display:block
         min-height: 36px;
         padding: 0 16px;
         font-size: 10px;
