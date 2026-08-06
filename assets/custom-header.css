@@ -60,28 +60,22 @@
 
 .custom-header__button {
   justify-self: end;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-
-  min-width: 160px;
-  height: 40px;
-
-  padding: 0 24px;
-
-  background: var(--header-button-bg);
-  color: var(--header-button-text);
-
-  text-decoration: none;
-  text-transform: uppercase;
-
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: .06em;
-
-  transition: background .25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 210px;
+    height: 45px;
+    padding: 0 20px;
+    background: var(--header-button-bg);
+    color: var(--header-button-text);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: .06em;
+    transition: background .25s ease;
+    line-height: 20px;
 }
 
 .custom-header__button:hover {
