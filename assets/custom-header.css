@@ -193,6 +193,9 @@
   .custom-header__mobile {
     display: block;
   }
+  .custom-header__announcement{
+    line-height:unset;
+  }
 
 }
 
