@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Open and close the mobile drawer for the custom header.
   const toggle = document.querySelector(".custom-header__toggle");
   const close = document.querySelector(".custom-header__close");
   const drawer = document.querySelector(".custom-header__drawer");
