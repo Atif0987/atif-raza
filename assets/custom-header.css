@@ -28,9 +28,9 @@
   display: grid;
   grid-template-columns: 180px 1fr 180px;
   align-items: center;
-
-  min-height: 56px;
+  min-height: 60px;
   column-gap: 20px;
+  padding:0 60px;
 }
 
 .custom-header__logo {
