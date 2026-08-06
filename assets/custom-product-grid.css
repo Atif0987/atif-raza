@@ -154,21 +154,15 @@
     top:50%;
     left:50%;
     transform:translate(-50%,-50%) scale(.96);
-
-    width:300px;
+    width:311px;
     background:#fff;
-
     display:flex;
     flex-direction:column;
     align-items:stretch;
-
     padding:20px;
-
     opacity:0;
     visibility:hidden;
-
     transition:all .25s ease;
-
     z-index:9999;
 }
 
@@ -244,10 +238,10 @@
 
 .custom-product-popup__image-wrapper{
 
-    width:110px;
-    height:110px;
+    width:120px;
+    height:140px;
 
-    flex:0 0 110px;
+    flex:0 0 120px;
 
     overflow:hidden;
 }
@@ -315,7 +309,7 @@
 
 .custom-product-popup__description{
 
-    margin:0 0 16px;
+    margin:0;
 
     font-size:13px;
     font-weight:400;
