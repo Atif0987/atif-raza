@@ -93,19 +93,17 @@
                         <div class="custom-product-popup__price">
                             {{ product.price | money }}
                         </div>
+                        {% if product.description != blank %}
+                            <div class="custom-product-popup__description">
+                                {{ product.description | strip_html | truncatewords: 22 }}
+                            </div>
+                        {% endif %}
 
                     </div>
 
                 </div>
 
                 <div class="custom-product-popup__content">
-
-                {% if product.description != blank %}
-                    <div class="custom-product-popup__description">
-                        {{ product.description | strip_html | truncatewords: 22 }}
-                    </div>
-                {% endif %}
-
                 <form class="custom-product-popup__form">
 
                     {% unless product.has_only_default_variant %}
