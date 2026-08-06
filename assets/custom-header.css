@@ -207,7 +207,7 @@
 
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
 
   .custom-header__desktop {
     display: block;
