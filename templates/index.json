@@ -30,13 +30,46 @@
       "name": "Custom Bar",
       "settings": {
         "text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
-        "background_color": "#F5F5F5",
+        "mobile_text": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR",
+        "background_color": "#f5f5f5",
         "text_color": "#000000"
+      }
+    },
+    "custom_product_grid_wiqVBF": {
+      "type": "custom-product-grid",
+      "blocks": {
+        "product_card_jCHxnT": {
+          "type": "product_card",
+          "settings": {
+            "product": "black-leather-bag",
+            "hotspot_x": 50,
+            "hotspot_y": 50
+          }
+        },
+        "product_card_bfw9D7": {
+          "type": "product_card",
+          "settings": {
+            "product": "",
+            "hotspot_x": 50,
+            "hotspot_y": 50
+          }
+        }
+      },
+      "block_order": [
+        "product_card_jCHxnT",
+        "product_card_bfw9D7"
+      ],
+      "name": "Custom Product Grid",
+      "settings": {
+        "heading": "Tisso vision in the wild",
+        "background_color": "#FFFFFF",
+        "heading_color": "#111111"
       }
     }
   },
   "order": [
     "gift_guide_hero_yNhqJR",
-    "custom_bar_dayJcg"
+    "custom_bar_dayJcg",
+    "custom_product_grid_wiqVBF"
   ]
 }
