@@ -52,7 +52,7 @@
           "settings": {
             "product": "blue-silk-tuxedo",
             "custom_image": "shopify://shop_images/Blue_Silk_Tuxedo.png",
-            "hotspot_x": 50,
+            "hotspot_x": 85,
             "hotspot_y": 50
           }
         },
