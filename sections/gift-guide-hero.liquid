@@ -1,125 +1,59 @@
 {{ 'gift-guide.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'gift-guide.js' | asset_url }}" defer></script>
 
-<section
+<div
   class="gift-guide"
   style="
     --gift-guide-bg: {{ section.settings.section_background }};
     --gift-guide-heading: {{ section.settings.heading_color }};
     --gift-guide-description: {{ section.settings.description_color }};
-    --announcement-bg: {{ section.settings.announcement_background }};
-    --announcement-text: {{ section.settings.announcement_text_color }};
-    --bottom-strip-bg: {{ section.settings.bottom_strip_background }};
-    --bottom-strip-text: {{ section.settings.bottom_strip_text_color }};
   "
 >
-  {% if section.settings.show_announcement %}
-    <div class="gift-guide__announcement">
-      <div class="page-width">
-        <div class="gift-guide__announcement-inner">
-
-          {% if section.settings.announcement_text != blank %}
-            <div class="gift-guide__announcement-text">
-              {{ section.settings.announcement_text }}
-            </div>
-          {% endif %}
-
-          {% if section.settings.announcement_button_text != blank %}
-            <a
-              href="{{ section.settings.announcement_button_link }}"
-              class="gift-guide__announcement-button"
-            >
-              {{ section.settings.announcement_button_text }}
-            </a>
-          {% endif %}
-
-        </div>
-      </div>
-    </div>
-  {% endif %}
+  <div class="page-width">
 
     <div class="gift-guide__hero">
 
-        {% if section.settings.background_image != blank %}
-            <div class="gift-guide__hero-background">
+      {% if section.settings.hero_image != blank %}
+        {{
+          section.settings.hero_image
+          | image_url: width: 2200
+          | image_tag:
+            class: 'gift-guide__image',
+            loading: 'eager',
+            fetchpriority: 'high',
+            alt: section.settings.hero_image.alt
+        }}
+      {% endif %}
 
-            {{
-                section.settings.background_image
-                | image_url: width: 2200
-                | image_tag:
-                class: 'gift-guide__background-image',
-                loading: 'eager',
-                fetchpriority: 'high',
-                alt: section.settings.background_image.alt
-            }}
+      <div class="gift-guide__content">
 
-            </div>
+        {% if section.settings.heading != blank %}
+          <h1 class="gift-guide__heading">
+            {{ section.settings.heading }}
+          </h1>
         {% endif %}
 
-        <div class="page-width">
+        {% if section.settings.description != blank %}
+          <div class="gift-guide__description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
 
-            <div class="gift-guide__hero-inner">
+        {% if section.settings.button_text != blank %}
+          <a
+            href="{{ section.settings.button_link }}"
+            class="gift-guide__button"
+          >
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
 
-            <div class="gift-guide__content">
+      </div>
 
-                <div class="gift-guide__content-inner">
-
-                {% if section.settings.heading != blank %}
-                    <h1 class="gift-guide__heading">
-                    {{ section.settings.heading }}
-                    </h1>
-                {% endif %}
-
-                {% if section.settings.description != blank %}
-                    <div class="gift-guide__description">
-                    {{ section.settings.description }}
-                    </div>
-                {% endif %}
-
-                {% if section.settings.button_text != blank %}
-                    <a
-                    href="{{ section.settings.button_link }}"
-                    class="gift-guide__button"
-                    data-action="gift-guide-cta"
-                    >
-                    {{ section.settings.button_text }}
-                    </a>
-                {% endif %}
-
-                </div>
-
-            </div>
-
-            <div class="gift-guide__foreground">
-
-                {% if section.settings.foreground_image != blank %}
-
-                {{
-                    section.settings.foreground_image
-                    | image_url: width: 1200
-                    | image_tag:
-                    class: 'gift-guide__foreground-image',
-                    loading: 'eager',
-                    fetchpriority: 'high',
-                    alt: section.settings.foreground_image.alt
-                }}
-
-                {% endif %}
-
-            </div>
-
-            </div>
-
-        </div>
     </div>
 
-
-  {% if section.settings.bottom_strip_text != blank %}
-    <div class="gift-guide__bottom-strip">
-      {{ section.settings.bottom_strip_text }}
-    </div>
-  {% endif %}
-</section>
+  </div>
+</div>
 
 {% schema %}
 {
@@ -127,45 +61,6 @@
   "tag": "section",
   "class": "section-gift-guide-hero",
   "settings": [
-    {
-      "type": "header",
-      "content": "Announcement Bar"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_announcement",
-      "label": "Show announcement bar",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "announcement_text",
-      "label": "Announcement text",
-      "default": "Find the ideal gift for your loved ones."
-    },
-    {
-      "type": "text",
-      "id": "announcement_button_text",
-      "label": "Button text",
-      "default": "CHOOSE GIFT"
-    },
-    {
-      "type": "url",
-      "id": "announcement_button_link",
-      "label": "Button link"
-    },
-    {
-      "type": "color",
-      "id": "announcement_background",
-      "label": "Background color",
-      "default": "#EEEADD"
-    },
-    {
-      "type": "color",
-      "id": "announcement_text_color",
-      "label": "Text color",
-      "default": "#111111"
-    },
     {
       "type": "header",
       "content": "Hero Content"
@@ -197,25 +92,10 @@
       "type": "header",
       "content": "Hero Images"
     },
-    {
+        {
       "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
-    },
-    {
-      "type": "image_picker",
-      "id": "foreground_image",
-      "label": "Foreground image"
-    },
-    {
-      "type": "header",
-      "content": "Bottom Strip"
-    },
-    {
-      "type": "text",
-      "id": "bottom_strip_text",
-      "label": "Text",
-      "default": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
+      "id": "hero_image",
+      "label": "Hero image"
     },
     {
       "type": "header",
@@ -238,18 +118,6 @@
       "id": "description_color",
       "label": "Description color",
       "default": "#555555"
-    },
-    {
-      "type": "color",
-      "id": "bottom_strip_background",
-      "label": "Bottom strip background",
-      "default": "#EEEADD"
-    },
-    {
-      "type": "color",
-      "id": "bottom_strip_text_color",
-      "label": "Bottom strip text color",
-      "default": "#111111"
     }
   ],
   "presets": [
