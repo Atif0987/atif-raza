@@ -96,6 +96,7 @@
                     {% unless product.has_only_default_variant %}
 
                     {% for option in product.options_with_values %}
+                        {% assign option_index = forloop.index0 %}
 
                         <div class="custom-product-popup__option">
 
@@ -131,7 +132,7 @@
                                 <button
                                 type="button"
                                 class="custom-product-popup__value"
-                                data-option-index="{{ forloop.parentloop.index0 }}"
+                                data-option-index="{{ option_index }}"
                                 data-value="{{ value }}"
                                 >
                                 {{ value }}
