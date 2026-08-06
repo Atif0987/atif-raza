@@ -43,8 +43,8 @@
           "settings": {
             "product": "black-leather-bag",
             "custom_image": "shopify://shop_images/Black_Leather_Bag.png",
-            "hotspot_x": 50,
-            "hotspot_y": 50
+            "hotspot_x": 60,
+            "hotspot_y": 60
           }
         },
         "product_card_bfw9D7": {
