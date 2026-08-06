@@ -155,13 +155,14 @@
     left:50%;
     transform:translate(-50%,-50%) scale(.96);
 
-    width:311px;
+    width:320px;
     background:#fff;
 
     display:flex;
-    align-items:flex-start;
+    flex-direction:column;
+    align-items:stretch;
 
-    padding:16px;
+    padding:20px;
 
     opacity:0;
     visibility:hidden;
@@ -207,8 +208,8 @@
 
     position:absolute;
 
-    top:8px;
-    right:10px;
+    top:12px;
+    right:14px;
 
     width:22px;
     height:22px;
@@ -220,10 +221,11 @@
 
     padding:0;
 
-    font-size:26px;
+    font-size:22px;
     font-weight:300;
-
     line-height:1;
+
+    z-index:2;
 }
 
 /* ==========================================================================
@@ -232,12 +234,14 @@
 
 .custom-product-popup__image-wrapper{
 
-    width:120px;
-    height:120px;
+    width:100%;
+    aspect-ratio: 3 / 2;
 
-    flex:0 0 120px;
+    flex:none;
 
     overflow:hidden;
+
+    margin-bottom:16px;
 }
 
 .custom-product-popup__image{
@@ -258,7 +262,7 @@
 
     flex:1;
 
-    padding-left:10px;
+    width:100%;
 
     display:flex;
     flex-direction:column;
@@ -279,12 +283,23 @@
 
 .custom-product-popup__price{
 
-    margin:10px 0 12px;
+    margin:10px 0 10px;
 
     font-size:18px;
     font-weight:400;
 
     color:#111;
+}
+
+.custom-product-popup__description{
+
+    margin:0 0 16px;
+
+    font-size:13px;
+    font-weight:400;
+    line-height:1.5;
+
+    color:#6B6B6B;
 }
 
 /* ==========================================================================
@@ -449,7 +464,7 @@
 
 @media (max-width:900px){
     .custom-product-popup{
-      width:311px;
+      width:320px;
     }
 
 }
@@ -460,19 +475,19 @@
 
 @media (max-width:767px){
     .custom-product-popup{
-      width:311px;
+      width:320px;
       max-width:calc(100vw - 24px);
-      padding:16px;
+      padding:18px;
       display:flex;
-      flex-direction:row;
+      flex-direction:column;
     }
     .custom-product-popup__image-wrapper{
-      width:120px;
-      height:120px;
-      flex:0 0 120px;
+      width:100%;
+      aspect-ratio: 3 / 2;
+      margin-bottom:14px;
     }
     .custom-product-popup__content{
-      padding-left:10px;
+      padding-left:0;
     }
     .custom-product-popup__title{
       font-size:18px;

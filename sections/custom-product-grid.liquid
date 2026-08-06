@@ -72,7 +72,7 @@
                 {% if popup_image %}
                     {{
                     popup_image
-                    | image_url: width: 240
+                    | image_url: width: 480
                     | image_tag:
                         class: 'custom-product-popup__image',
                         loading: 'lazy',
@@ -92,39 +92,30 @@
                     {{ product.price | money }}
                 </div>
 
+                {% if product.description != blank %}
+                    <div class="custom-product-popup__description">
+                        {{ product.description | strip_html | truncatewords: 22 }}
+                    </div>
+                {% endif %}
+
                 <form class="custom-product-popup__form">
 
                     {% unless product.has_only_default_variant %}
 
+                    {% comment %}
+                        Render non-size options (e.g. Color) first, then Size last,
+                        regardless of the order Shopify stores them in.
+                    {% endcomment %}
+
                     {% for option in product.options_with_values %}
                         {% assign option_index = forloop.index0 %}
 
+                        {% unless option.name == 'Size' %}
                         <div class="custom-product-popup__option">
 
-                        <label class="custom-product-popup__label">
-                            {{ option.name }}
-                        </label>
-
-                        {% if option.name == 'Size' %}
-
-                            <select
-                            class="custom-product-popup__select"
-                            data-option-index="{{ forloop.index0 }}"
-                            >
-
-                            <option value="">
-                                Choose your {{ option.name | downcase }}
-                            </option>
-
-                            {% for value in option.values %}
-                                <option value="{{ value }}">
-                                {{ value }}
-                                </option>
-                            {% endfor %}
-
-                            </select>
-
-                        {% else %}
+                            <label class="custom-product-popup__label">
+                                {{ option.name }}
+                            </label>
 
                             <div class="custom-product-popup__values">
 
@@ -143,9 +134,40 @@
 
                             </div>
 
-                        {% endif %}
+                        </div>
+                        {% endunless %}
+
+                    {% endfor %}
+
+                    {% for option in product.options_with_values %}
+                        {% assign option_index = forloop.index0 %}
+
+                        {% if option.name == 'Size' %}
+                        <div class="custom-product-popup__option">
+
+                            <label class="custom-product-popup__label">
+                                {{ option.name }}
+                            </label>
+
+                            <select
+                            class="custom-product-popup__select"
+                            data-option-index="{{ option_index }}"
+                            >
+
+                            <option value="">
+                                Choose your {{ option.name | downcase }}
+                            </option>
+
+                            {% for value in option.values %}
+                                <option value="{{ value }}">
+                                {{ value }}
+                                </option>
+                            {% endfor %}
+
+                            </select>
 
                         </div>
+                        {% endif %}
 
                     {% endfor %}
 
@@ -196,6 +218,7 @@
 
   </div>
 </div>
+
 
 {% schema %}
 {
