@@ -1,0 +1,144 @@
+/* ==========================================================================
+   Custom Product Grid
+   ========================================================================== */
+
+.custom-product-grid {
+  background: var(--section-bg);
+  padding: 80px 0;
+}
+
+.custom-product-grid *,
+.custom-product-grid *::before,
+.custom-product-grid *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Heading
+   ========================================================================== */
+
+.custom-product-grid__heading {
+  margin: 0 0 32px;
+
+  color: var(--heading-color);
+
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+/* ==========================================================================
+   Grid
+   ========================================================================== */
+
+.custom-product-grid__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* ==========================================================================
+   Card
+   ========================================================================== */
+
+.custom-product-grid__item {
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-product-grid__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   Hotspot
+   ========================================================================== */
+
+.custom-product-grid__hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  padding: 0;
+}
+
+.custom-product-grid__hotspot span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #000;
+  transform: translate(-50%, -50%);
+}
+
+.custom-product-grid__hotspot span:first-child {
+  width: 12px;
+  height: 2px;
+}
+
+.custom-product-grid__hotspot span:last-child {
+  width: 2px;
+  height: 12px;
+}
+
+.custom-product-grid__hotspot:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* ==========================================================================
+   Tablet
+   ========================================================================== */
+
+@media screen and (max-width: 1024px) {
+
+  .custom-product-grid {
+    padding: 60px 0;
+  }
+
+  .custom-product-grid__heading {
+    font-size: 38px;
+    margin-bottom: 24px;
+  }
+
+  .custom-product-grid__grid {
+    gap: 10px;
+  }
+
+}
+
+/* ==========================================================================
+   Mobile
+   ========================================================================== */
+
+@media screen and (max-width: 767px) {
+
+  .custom-product-grid {
+    padding: 40px 0;
+  }
+
+  .custom-product-grid__heading {
+    margin-bottom: 24px;
+
+    text-align: center;
+
+    font-size: 32px;
+  }
+
+  .custom-product-grid__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .custom-product-grid__hotspot {
+    width: 32px;
+    height: 32px;
+
+    font-size: 20px;
+  }
+
+}
