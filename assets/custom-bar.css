@@ -14,7 +14,7 @@
     box-sizing: border-box;
 }
 
-custom-mobile-bar__text{
+.custom-mobile-bar__text{
     display:none;
 }
 
