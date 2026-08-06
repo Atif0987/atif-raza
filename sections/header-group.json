@@ -128,10 +128,24 @@
         "collection_inverse_logo": false,
         "text_color_transparent_collection": ""
       }
+    },
+    "custom_header_eiFPQT": {
+      "type": "custom-header",
+      "name": "Custom Header",
+      "settings": {
+        "announcement": "Find the ideal gift for your loved ones.",
+        "button_text": "CHOOSE GIFT",
+        "button_link": "",
+        "background": "#F5F3EE",
+        "text_color": "#111111",
+        "button_background": "#F8E81C",
+        "button_text_color": "#111111"
+      }
     }
   },
   "order": [
     "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "custom_header_eiFPQT"
   ]
 }
