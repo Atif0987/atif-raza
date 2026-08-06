@@ -49,7 +49,39 @@
         "product_card_bfw9D7": {
           "type": "product_card",
           "settings": {
-            "product": "",
+            "product": "blue-silk-tuxedo",
+            "hotspot_x": 50,
+            "hotspot_y": 50
+          }
+        },
+        "product_card_BwFeph": {
+          "type": "product_card",
+          "settings": {
+            "product": "chequered-red-shirt",
+            "hotspot_x": 50,
+            "hotspot_y": 50
+          }
+        },
+        "product_card_TpBRPU": {
+          "type": "product_card",
+          "settings": {
+            "product": "classic-leather-jacket",
+            "hotspot_x": 50,
+            "hotspot_y": 50
+          }
+        },
+        "product_card_JPbd4a": {
+          "type": "product_card",
+          "settings": {
+            "product": "classic-varsity-top",
+            "hotspot_x": 50,
+            "hotspot_y": 50
+          }
+        },
+        "product_card_RKGUG6": {
+          "type": "product_card",
+          "settings": {
+            "product": "dark-denim-top",
             "hotspot_x": 50,
             "hotspot_y": 50
           }
@@ -57,12 +89,16 @@
       },
       "block_order": [
         "product_card_jCHxnT",
-        "product_card_bfw9D7"
+        "product_card_bfw9D7",
+        "product_card_BwFeph",
+        "product_card_TpBRPU",
+        "product_card_JPbd4a",
+        "product_card_RKGUG6"
       ],
       "name": "Custom Product Grid",
       "settings": {
         "heading": "Tisso vision in the wild",
-        "background_color": "#FFFFFF",
+        "background_color": "#ffffff",
         "heading_color": "#111111"
       }
     }
