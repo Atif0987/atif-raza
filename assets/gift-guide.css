@@ -67,7 +67,7 @@
 
   padding: 0 30px;
 
-  background: #000;
+  background: var(--gift-guide-button-bg, #000000);
   color: #fff;
 
   text-decoration: none;
